@@ -8,18 +8,11 @@ const FormInput = (props) => {
 
     const ipAddressRefValue = ipAddressRef.current.value;
 
-    const response = await fetch(
-      `https://geo.ipify.org/api/v2/country?apiKey=at_jLdWqCECrDZ5WNMDQd7RSSkc4HHTF&ipAddress=${ipAddressRefValue}`,
-      {
-        method: "GET",
-      }
-    );
-    const data = response.json();
-
-    console.log(data);
+    props.onSearchIp(ipAddressRefValue);
 
     ipAddressRef.current.value = "";
   };
+
   return (
     <>
       <form action="">
