@@ -1,7 +1,10 @@
 import FormInput from "../components/FormInput/FormInput";
 import InfoCard from "../components/InfoCard/InfoCard";
+import { useState } from "react";
 
-const HomePage = () => {
+const HomePage = (props) => {
+  // const [trackerData, setTrackerData] = useState();
+  // convert to getserversideprops
   const getIpInfoHandler = async (enteredIp) => {
     const response = await fetch(
       `https://geo.ipify.org/api/v2/country?apiKey=at_jLdWqCECrDZ5WNMDQd7RSSkc4HHTF&ipAddress=${enteredIp}`
@@ -16,7 +19,9 @@ const HomePage = () => {
       timeZone: data.location.timezone,
     };
 
-    console.log(ipData);
+    props.trackingData(ipData);
+
+    // setTrackerData(ipData);
   };
 
   return (
@@ -30,3 +35,6 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+// GET SERVER SIDE PROPS of ipData
+// and just pass data directly through props
