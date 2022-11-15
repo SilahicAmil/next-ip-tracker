@@ -9,9 +9,9 @@ const HomePage = () => {
         method: "GET",
       }
     );
-    const ipData = response.json();
-
-    console.log(ipData.ip);
+    //  follow what I did in advice project
+    // but for the data just for loop and create own object or array of data
+    // so its easier to use
   };
 
   return (
