@@ -16,7 +16,6 @@ const HomePage = () => {
       timeZone: data.location.timezone,
     };
 
-    // props.IpTracker()
     console.log(ipData);
   };
 
@@ -24,7 +23,7 @@ const HomePage = () => {
     <>
       <h1 className="text-2xl bg-red-500 font-mono">IP Address Tracker</h1>
       <FormInput onSearchIp={getIpInfoHandler} />
-
+      {/* pass ipData here */}
       <InfoCard />
     </>
   );

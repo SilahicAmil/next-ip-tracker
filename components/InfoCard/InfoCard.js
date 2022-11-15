@@ -1,5 +1,5 @@
 const InfoCard = (props) => {
-  // useState here to update the state from prop.IpTracker()
+  //  map over data here not sure how vertical bars will effect it but YOLO
   return (
     <div className="flex gap-4 bg-white h-32 items-center justify-center">
       <h1>IP HERE</h1>
