@@ -1,9 +1,8 @@
 const InfoCard = (props) => {
-  //  map over data here not sure how vertical bars will effect it but YOLO
   return (
     <>
-      {/* {props.trackingData.map((data) => {
-        return <h1 key={data}>{data}</h1>;
+      {/* {props.trackingData.map((val) => {
+        return <h1>{val}</h1>;
       })} */}
       <div className="flex gap-4 bg-white h-32 items-center justify-center">
         <h1>IP HERE</h1>
