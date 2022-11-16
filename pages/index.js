@@ -36,5 +36,6 @@ const HomePage = (props) => {
 
 export default HomePage;
 
-// GET SERVER SIDE PROPS of ipData
+// GET STATIC PROPS of ipData
 // and just pass data directly through props
+export const getStaticProps = async () => {};
