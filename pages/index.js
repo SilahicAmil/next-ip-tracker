@@ -1,39 +1,46 @@
 import FormInput from "../components/FormInput/FormInput";
 import InfoCard from "../components/InfoCard/InfoCard";
+import { useCallback } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const HomePage = (props) => {
-  const [trackerData, setTrackerData] = useState([
-    {
-      ip: "111.1.111.123",
-      location: { country: "US", region: "Texas", timezone: "-6:00" },
-      isp: "Comcast Cable",
-    },
-  ]);
+  const [trackerData, setTrackerData] = useState([]);
   // useEffect might be good here
-  const getIpInfoHandler = async (enteredIp) => {
-    const response = await fetch(
-      `https://geo.ipify.org/api/v2/country?apiKey=at_jLdWqCECrDZ5WNMDQd7RSSkc4HHTF&ipAddress=${enteredIp}`
-    );
-    const data = await response.json();
+  const getIpInfoHandler = useCallback(
+    async (enteredIp) => {
+      const response = await fetch(
+        `https://geo.ipify.org/api/v2/country?apiKey=at_jLdWqCECrDZ5WNMDQd7RSSkc4HHTF&ipAddress=${enteredIp}`
+      );
+      const data = await response.json();
 
-    // console.log(data);
+      const loadedData = [];
 
-    // const arrData = Object.entries(data);
+      for (const key in data) {
+        loadedData.push({
+          data: data,
+        });
+      }
 
-    setTrackerData(data);
-    console.log(trackerData);
+      setTrackerData(loadedData);
+      console.log(trackerData);
 
-    // const ipData = {
-    //   ip: data.ip,
-    //   location: data.location,
-    //   isp: data.isp,
-    //   timeZone: data.location.timezone,
-    // };
+      // const ipData = {
+      //   ip: data.ip,
+      //   location: data.location,
+      //   isp: data.isp,
+      //   timeZone: data.location.timezone,
+      // };
 
-    // setTrackerData(ipData);
-    // console.log(trackerData);
-  };
+      // setTrackerData(ipData);
+      // console.log(trackerData);
+    },
+    [trackerData]
+  );
+
+  // useEffect(() => {
+  //   getIpInfoHandler();
+  // }, [getIpInfoHandler]);
 
   return (
     <>

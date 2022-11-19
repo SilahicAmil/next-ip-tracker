@@ -3,11 +3,16 @@ import { useState } from "react";
 const InfoCard = (props) => {
   // take tracker data and do stuff here
 
+  const data = props.trackingData.forEach((val) => {
+    console.log(val);
+  });
+
+  // console.log(data);
   return (
     <>
       <div>
-        {/* {props.trackingData.map((val, idx) => {
-          return <h1 key={idx}>{val}</h1>;
+        {/* {Object.values(props.trackingData).map((val) => {
+          return <h1>{val}</h1>;
         })} */}
       </div>
       <div className="flex gap-4 bg-white h-32 items-center justify-center">
